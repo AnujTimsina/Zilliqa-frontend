@@ -38,6 +38,7 @@ function App() {
     const pvtKey = schnorr.generatePrivateKey();
     console.log(`Pkey - ${pvtKey}`);
     zilliqaLib.wallet.addByPrivateKey(pvtKey);
+    console.log(zilliqaLib);
     setLocalStorage();
   };
   const accountHandlerBySeed = () => {
@@ -91,6 +92,7 @@ function App() {
           borderRadius: "16px",
           padding: "10px",
           boxShadow: "5px 6px 8px 6px #a9c4de",
+          overflowY: "scroll",
         }}
       >
         <div className="">
@@ -98,7 +100,7 @@ function App() {
             type="primary"
             shape="round"
             onClick={accountHandlerByPrivateKey}
-            disabled={buttonState}
+            disabled={null}
           >
             Create Account
           </Button>
@@ -106,10 +108,10 @@ function App() {
             type="primary"
             shape="round"
             onClick={accountHandlerBySeed}
-            disabled={buttonState}
+            disabled={null}
             style={{ marginLeft: "10px" }}
           >
-            Create Account Using Seed
+            Create Account With Seed
           </Button>
         </div>
         <div className="bg-gray-100" style={{ padding: "8px" }}>
@@ -140,7 +142,6 @@ function App() {
           type="primary"
           shape="round"
           onClick={checkBalance}
-          disabled={buttonState}
           style={{ marginLeft: "10px" }}
           icon={<ReloadOutlined />}
         >
